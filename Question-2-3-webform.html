@@ -29,25 +29,25 @@
         <h1>Feedback form</h1>
     <form>
         <div class="control">
-          <label for="name">Full name <span class="required">(required)</span></label><input id="name" name="name" type="text" />
+          <label for="name">Full name <span class="required">(required)</span></label><input id="name" name="name" type="text" /> <!-- Add 'for' attribute -->
         </div>
         <div class="control">
-          <label for="biography">Biography</label>
-          <span>Include examples on your skills in JavaScript.</span>
+          <label for="biography">Biography</label> <!-- Add 'for' attribute -->
+          <span>Include examples on your skills in JavaScript.</span> <!-- Move instructions to before input -->
           <textarea id="biography" name="biography" type="text"></textarea>
 
         </div>
-        <fieldset>
+        <fieldset> <!-- Add input fieldset and legend -->
           <legend>Gender</legend>
           <div class="control">
-            <input id="gender_male" name="gender" type="radio" value="male" /><label for="gender_male">Male</label>
+            <input id="gender_male" name="gender" type="radio" value="male" /><label for="gender_male">Male</label> <!-- Add 'for' attribute -->
           </div>
           <div class="control">
-            <input id="gender_female" name="gender" type="radio" value="female" /><label for="gender_female">Female</label>
+            <input id="gender_female" name="gender" type="radio" value="female" /><label for="gender_female">Female</label> <!-- Add 'for' attribute -->
           </div>
         </fieldset>
           <div class="control">
-            <input id="accept_agbs" name="accept_agbs" type="checkbox" value="1" /><label for="accept_agbs">I accept the terms and conditions</label>
+            <input id="accept_agbs" name="accept_agbs" type="checkbox" value="1" /><label for="accept_agbs">I accept the terms and conditions</label> <!-- Add 'for' attribute -->
           </div>
           <div class="control">
             <input name="validate" type="hidden" value="1" /><input type="submit" value="Register" />
@@ -105,7 +105,7 @@
       
             if ($(':not(form):focus').length === 0) {
               // See https://stackoverflow.com/questions/46134247/jquery-setting-focus-doesnt-work-in-ie11/
-              $errorContainer.focus();
+              $errorContainer.focus(); // focus on error container if any element fails to validate
             }
           } else {
             if ($input.is(':checkbox')) {
@@ -127,10 +127,10 @@
             validateInput('gender', 'Please tell us your gender!');
             validateInput('accept_agbs', 'You must accept our terms and conditions!');
             
-            if ($('.error').length === 0) {
+            if ($('.error').length === 0) { // change .errors to .error to fix CSS and script functionality
               return alert('All inputs are valid.');
             }else {
-              return alert('There are ' + $('.error').length + ' errors in the form. Please correct them and submit again.');
+              return alert('There are ' + $('.error').length + ' errors in the form. Please correct them and submit again.'); // add alert in case of errors
             }
           }
         });
